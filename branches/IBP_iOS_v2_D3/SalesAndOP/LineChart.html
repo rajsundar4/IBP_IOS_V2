@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+  .x.axis path {
+      display: none;
+  }
+  .axis line, .domain {
+      fill: none;
+      stroke: #C2C2C2;
+      stroke-width: 1;
+      shape-rendering: crispEdges;
+  }
+  .svg-container {
+      display: inline-block;
+      overflow: hidden;
+      padding-bottom: 100%;
+      position: relative;
+      vertical-align: middle;
+  }
+  .legend rect {
+      opacity:0.8;
+  }
+  .legend-item text{
+     font-size:12px;
+  }
+ .tick text{
+     font-size:12px;
+  }
+ .axis>text{
+     font-weight: bolder;
+     font-size:14px;
+  }
+ .active {
+     opacity: 0.5;
+  }
+
+  body , svg{
+      font-family:'Open Sans', Arial, Helvetica, sans-serif;
+      font-size:12px;
+  }
+</style>
+
+<title>Line Chart</title>
+
+<body>
+ <div id="chart"></div>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="d3.v3.min.js"></script>
+  <script type="text/javascript" src="chart.js"></script>
+
+  <script type="text/javascript">
+   
+
+ /* var data = [
+{PERIODID3:"Aug-16", PCAOPREV:26340620, PCCONSDMREV:23715450},
+{PERIODID3:"Sep-16", PCAOPREV:33066220, PCCONSDMREV:29629580},
+{PERIODID3:"Oct-16", PCAOPREV:28030380, PCCONSDMREV:22637590},
+{PERIODID3:"Nov-16", PCAOPREV:35324780, PCCONSDMREV:22560200},
+{PERIODID3:"Dec-16", PCAOPREV:55688820, PCCONSDMREV:27621070},
+{PERIODID3:"Jan-17", PCAOPREV:48839910, PCCONSDMREV:25098300},
+{PERIODID3:"Feb-17", PCAOPREV:49296210, PCCONSDMREV:38950340},
+{PERIODID3:"Mar-17", PCAOPREV:61336870, PCCONSDMREV:60829070},
+{PERIODID3:"Apr-17", PCAOPREV:50158650, PCCONSDMREV:45070940},
+{PERIODID3:"May-17", PCAOPREV:49779860, PCCONSDMREV:44678920},
+{PERIODID3:"Jun-17", PCAOPREV:63210500, PCCONSDMREV:57492330},
+{PERIODID3:"Jul-17", PCAOPREV:51483670, PCCONSDMREV:46703470},
+{PERIODID3:"Aug-17", PCAOPREV:64553980, PCCONSDMREV:58307680},
+]
+
+    var presets = {
+     dimensions: [{ //dimensions as it is
+       axis: 1,
+       name: 'Monthly',
+       value: "{PERIODID3}"
+     }, ],
+     measures: [{ //measures as it is
+       name: 'AOP Revenue',
+       value: "{PCAOPREV}"
+     }, { 
+       name: 'Consensus Demand Plan Revenue',
+       value: "{PCCONSDMREV}"
+     }, ],
+     dataset: data, 
+     height: "225px",
+     plotArea: {  //plotArea As it is
+       'colorPalette': ['#21a3f1', '#ff872e', '#79b51a', '#f7e326', '#074389', '#7876e5', '#d5eb7e', '#488bed', '#ffc145', '#8a8175', '#0b7c16']
+     }
+   }*/
+
+   var data = [
+                {PERIODID3:"Aug-16", PRDFAMILY:"Family 100-Headphones", CONSENSUSDEMAND:74854},
+                {PERIODID3:"Aug-16", PRDFAMILY:"Family 200-Music Docks", CONSENSUSDEMAND:75567},
+                {PERIODID3:"Aug-16", PRDFAMILY:"Family 300-Home Theater", CONSENSUSDEMAND:0},
+                {PERIODID3:"Sep-16", PRDFAMILY:"Family 100-Headphones", CONSENSUSDEMAND:90676},
+                {PERIODID3:"Sep-16", PRDFAMILY:"Family 200-Music Docks", CONSENSUSDEMAND:91357},
+                {PERIODID3:"Sep-16", PRDFAMILY:"Family 300-Home Theater", CONSENSUSDEMAND:0},
+                {PERIODID3:"Oct-16", PRDFAMILY:"Family 100-Headphones", CONSENSUSDEMAND:72014},
+                {PERIODID3:"Oct-16", PRDFAMILY:"Family 200-Music Docks", CONSENSUSDEMAND:73473},
+                {PERIODID3:"Oct-16", PRDFAMILY:"Family 300-Home Theater", CONSENSUSDEMAND:0},
+                {PERIODID3:"Nov-16", PRDFAMILY:"Family 100-Headphones", CONSENSUSDEMAND:71679},
+                {PERIODID3:"Nov-16", PRDFAMILY:"Family 200-Music Docks", CONSENSUSDEMAND:70316},
+                {PERIODID3:"Nov-16", PRDFAMILY:"Family 300-Home Theater", CONSENSUSDEMAND:0},
+                {PERIODID3:"Dec-16", PRDFAMILY:"Family 100-Headphones", CONSENSUSDEMAND:91032},
+                {PERIODID3:"Dec-16", PRDFAMILY:"Family 200-Music Docks", CONSENSUSDEMAND:86426},
+                {PERIODID3:"Dec-16", PRDFAMILY:"Family 300-Home Theater", CONSENSUSDEMAND:0},
+                {PERIODID3:"Jan-17", PRDFAMILY:"Family 100-Headphones", CONSENSUSDEMAND:71724},
+                {PERIODID3:"Jan-17", PRDFAMILY:"Family 200-Music Docks", CONSENSUSDEMAND:67825},
+                {PERIODID3:"Jan-17", PRDFAMILY:"Family 300-Home Theater", CONSENSUSDEMAND:4306},
+                {PERIODID3:"Feb-17", PRDFAMILY:"Family 100-Headphones", CONSENSUSDEMAND:69915},
+                {PERIODID3:"Feb-17", PRDFAMILY:"Family 200-Music Docks", CONSENSUSDEMAND:68476},
+                {PERIODID3:"Feb-17", PRDFAMILY:"Family 300-Home Theater", CONSENSUSDEMAND:27621},
+                {PERIODID3:"Mar-17", PRDFAMILY:"Family 100-Headphones", CONSENSUSDEMAND:91749},
+                {PERIODID3:"Mar-17", PRDFAMILY:"Family 200-Music Docks", CONSENSUSDEMAND:88645},
+                {PERIODID3:"Mar-17", PRDFAMILY:"Family 300-Home Theater", CONSENSUSDEMAND:67066},
+                {PERIODID3:"Apr-17", PRDFAMILY:"Family 100-Headphones", CONSENSUSDEMAND:72431},
+                {PERIODID3:"Apr-17", PRDFAMILY:"Family 200-Music Docks", CONSENSUSDEMAND:70857},
+                {PERIODID3:"Apr-17", PRDFAMILY:"Family 300-Home Theater", CONSENSUSDEMAND:72072},
+                {PERIODID3:"May-17", PRDFAMILY:"Family 100-Headphones", CONSENSUSDEMAND:72019},
+                {PERIODID3:"May-17", PRDFAMILY:"Family 200-Music Docks", CONSENSUSDEMAND:73426},
+                {PERIODID3:"May-17", PRDFAMILY:"Family 300-Home Theater", CONSENSUSDEMAND:72482},
+                {PERIODID3:"Jun-17", PRDFAMILY:"Family 100-Headphones", CONSENSUSDEMAND:89841},
+                {PERIODID3:"Jun-17", PRDFAMILY:"Family 200-Music Docks", CONSENSUSDEMAND:92666},
+                {PERIODID3:"Jun-17", PRDFAMILY:"Family 300-Home Theater", CONSENSUSDEMAND:88901},
+                {PERIODID3:"Jul-17", PRDFAMILY:"Family 100-Headphones", CONSENSUSDEMAND:73759},
+                {PERIODID3:"Jul-17", PRDFAMILY:"Family 200-Music Docks", CONSENSUSDEMAND:75175},
+                {PERIODID3:"Jul-17", PRDFAMILY:"Family 300-Home Theater", CONSENSUSDEMAND:73856},
+                {PERIODID3:"Aug-17", PRDFAMILY:"Family 100-Headphones", CONSENSUSDEMAND:91200},
+                {PERIODID3:"Aug-17", PRDFAMILY:"Family 200-Music Docks", CONSENSUSDEMAND:91188},
+                {PERIODID3:"Aug-17", PRDFAMILY:"Family 300-Home Theater", CONSENSUSDEMAND:89716},
+              ]
+
+  var presets = {
+     dimensions: [{ //dimensions as it is
+       axis: 1,
+       name: 'Monthly',
+       value: "{PERIODID3}"
+     }, 
+     {
+      axis : 2,
+      name : 'Product Family', 
+      value: "{PRDFAMILY}"
+    }],
+     measures: [{ //measures as it is
+       name: 'Consensus Demand Qty',
+       value: "{CONSENSUSDEMAND}"
+     }, ],
+     dataset: data, 
+     height: "225px",
+     plotArea: {  //plotArea As it is
+       'colorPalette': ['#21a3f1', '#ff872e', '#79b51a', '#f7e326', '#074389', '#7876e5', '#d5eb7e', '#488bed', '#ffc145', '#8a8175', '#0b7c16']
+     }
+   }
+
+   //function call to render the respective chart
+     lChart("chart", presets) // ("id-where-chart-is rendered", presets which has all the pre-requisites)
+
+</script>
+</body>
+</html>

@@ -1,0 +1,142 @@
+<!doctype html>
+<html><head>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <meta charset="utf-8">
+           <link rel="stylesheet" type="text/css" href="style.css">    <script src="d3.v3.min.js"></script>
+    <script src="MultiSeriesBarChart.js"></script>
+
+    <!--           <script src="lineGraph.js"></script>-->
+    <div id="line"></div>
+    <div id="pie"></div>
+    <div id="bar"></div>
+</head><body>
+    <div class="" id="chart">
+        </div>
+   
+    
+    <script type="text/javascript">
+        /* Vertical Cluster*/
+        var data = [{
+                    "CONSTRAINEDDEMANDPLANREV" : "22645636.3541",
+                    "GROSSPROFIT" : "13587372.963488",
+                    "OPERATINGPROFIT" : "12330799.760858",
+                    "SCNID" : "Baseline",
+                    },
+                    {
+                    "CONSTRAINEDDEMANDPLANREV" : "49499950.49978",
+                    "GROSSPROFIT" : "29699950.957982",
+                    "OPERATINGPROFIT" : "28443377.755352",
+                    "SCNID" : "In-house",
+                    },
+                    {
+                    "CONSTRAINEDDEMANDPLANREV" : "49499950.499659",
+                    "GROSSPROFIT" : "26746100.480382",
+                    "OPERATINGPROFIT" : "25489527.277752",
+                    "SCNID" : "Outsource",
+                    }]
+                    
+                    var presets = {
+                        "dimensions": [{ //dimensions as it is
+                                       "axis": 1,
+                                       "name": "Location Region",
+                                       "value": "{LOCREGION}"
+                                       } ],
+                                       "measures": [{ //measures as it is
+                                                    "name": "Loc Total Demand (Net)",
+                                                    "value": "{NETDEMAND}"
+                                                    }],
+                                                    "dataset": data, 
+                                                    "height": "225px",
+                                                    "plotArea": {  //plotArea As it is
+                                                        "colorPalette": ['#21a3f1', '#ff872e', '#79b51a', '#f7e326', '#074389', '#7876e5', '#d5eb7e', '#488bed', '#ffc145', '#8a8175', '#0b7c16']
+                                                    }
+                    }
+    //function call to render the respective chart
+    
+        </script>
+<!--    <script>chart(dataset,"chart", AxisLabels);</script>-->
+<!--    <script src="Linechart.js"></script>-->
+
+<!--    <h1>WebViewJavascriptBridge Demo</h1>-->
+	<script>
+	window.onerror = function(err) {
+		log('window.onerror: ' + err)
+	}
+
+    function setupWebViewJavascriptBridge(callback) {
+        if (window.WebViewJavascriptBridge) { return callback(WebViewJavascriptBridge); }
+        if (window.WVJBCallbacks) { return window.WVJBCallbacks.push(callback); }
+        window.WVJBCallbacks = [callback];
+        var WVJBIframe = document.createElement('iframe');
+        WVJBIframe.style.display = 'none';
+        WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+        document.documentElement.appendChild(WVJBIframe);
+        setTimeout(function() { document.documentElement.removeChild(WVJBIframe) }, 0)
+    }
+
+    setupWebViewJavascriptBridge(function(bridge) {
+		var uniqueId = 1
+		function log(message, data) {
+			var log = document.getElementById('log')
+			var el = document.createElement('div')
+			el.className = 'logLine'
+			el.innerHTML = uniqueId++ + '. ' + message + ':<br/>' + JSON.stringify(data)
+			if (log.children.length) { log.insertBefore(el, log.children[0]) }
+			else { log.appendChild(el) }
+		}
+
+		bridge.registerHandler('testJavascriptHandler', function(data, responseCallback) {
+			//log('ObjC called testJavascriptHandler with', data)
+			var responseData = { 'Javascript Says':'Right back atcha!' }
+			
+                               
+                               //var barDataset =
+                               //[ { x_key: 0, y_value: 5 },{ x_key: 1, y_value: 10 },{ x_key: 2, y_value: 13 },{ x_key: 3, y_value: 19 },{ x_key: 4, y_value: 21 }];
+                               //var barDataset = data.replace(/^"(.*)"$/, '$1');
+                               //data = data.replace(/"/g, "");
+                               //var data2 = JSON.parse(data);
+                               // Decode and parse the received input
+                               //var jsonString = data.replace("\"", " ");
+                               var clientHeight = document.getElementById('chart').clientHeight;
+                               log('Window width',window.innerWidth,clientHeight);
+                               //verticleBarChart("chart", presets)
+                               //chart(data,"chart", AxisLabels, window.innerWidth, window.innerHeight);
+                               verticleBarChart("chart", data)
+                               
+                               
+                               log('Graph is loading from remote',data);
+                               //customBarGraph(data);
+                               
+                               
+			responseCallback(responseData)
+		})
+
+		document.body.appendChild(document.createElement('br'))
+
+		var callbackButton = document.getElementById('buttons').appendChild(document.createElement('button'))
+		callbackButton.innerHTML = 'Fire testObjcCallback'
+		callbackButton.onclick = function(e) {
+			e.preventDefault()
+			log('JS calling handler "testObjcCallback"')
+			bridge.callHandler('testObjcCallback', {'foo': 'bar'}, function(response) {
+				log('JS got response', response)
+			})
+		}
+	})
+    
+    function add() {
+        return 'Sudhir';
+    }
+    
+    function customBarGraph(data) {
+        var barDataset =
+        [ { x_key: 0, y_value: 5 },{ x_key: 1, y_value: 10 },{ x_key: 2, y_value: 13 },{ x_key: 3, y_value: 19 },{ x_key: 4, y_value: 21 },{ x_key: 5, y_value: 25 },{ x_key: 6, y_value: 22 },{ x_key: 7, y_value: 18 },{ x_key: 8, y_value: 15 },{ x_key: 9, y_value: 13 },{ x_key: 10, y_value: 11 },{ x_key: 11, y_value: 12 },{ x_key: 12, y_value: 15 },{ x_key: 13, y_value: 20 },{ x_key: 14, y_value: 18 },{ x_key: 15, y_value: 17 },{ x_key: 16, y_value: 16 },{ x_key: 17, y_value: 18 },{ x_key: 18, y_value: 23 },{ x_key: 19, y_value: 25 } ];
+        barGraph(data,"#bar");//bar graph
+        
+    }
+    
+	</script>
+    </div> <div id='log'>
+    </div>
+<!--	<div id='buttons'></div> <div id='log'></div>-->
+</body></html>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<service 
+    xmlns:atom="http://www.w3.org/2005/Atom" 
+    xmlns:app="http://www.w3.org/2007/app" 
+    xmlns="http://www.w3.org/2007/app" xml:base="http://sandbox02.sop.ondemand.com/sap/sop/services/analytics/sapsopa.xsodata/">
+    <workspace>
+        <atom:title>Default</atom:title>
+        <collection href="reports">
+            <atom:title>reports</atom:title>
+        </collection>
+        <collection href="reportpages">
+            <atom:title>reportpages</atom:title>
+        </collection>
+        <collection href="reportviews">
+            <atom:title>reportviews</atom:title>
+        </collection>
+        <collection href="reportpagelayout">
+            <atom:title>reportpagelayout</atom:title>
+        </collection>
+        <collection href="reportview">
+            <atom:title>reportview</atom:title>
+        </collection>
+        <collection href="report">
+            <atom:title>report</atom:title>
+        </collection>
+        <collection href="reportviewfilters">
+            <atom:title>reportviewfilters</atom:title>
+        </collection>
+    </workspace>
+</service>

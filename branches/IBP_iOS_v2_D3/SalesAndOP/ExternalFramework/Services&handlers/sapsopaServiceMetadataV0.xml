@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<edmx:Edmx Version="1.0"
+    xmlns:edmx="http://schemas.microsoft.com/ado/2007/06/edmx">
+    <edmx:DataServices
+        xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata" m:DataServiceVersion="2.0">
+        <Schema Namespace="sap.sop.services.analytics.sapsopa"
+            xmlns:d="http://schemas.microsoft.com/ado/2007/08/dataservices"
+            xmlns:m="http://schemas.microsoft.com/ado/2007/08/dataservices/metadata"
+            xmlns="http://schemas.microsoft.com/ado/2007/05/edm">
+            <EntityType Name="reportsType">
+                <Key>
+                    <PropertyRef Name="REPORTID" />
+                </Key>
+                <Property Name="REPORTID" Type="Edm.String" Nullable="false" MaxLength="32" />
+                <Property Name="REPORTNAME" Type="Edm.String" Nullable="true" MaxLength="32" />
+                <Property Name="REPORTDESCR" Type="Edm.String" Nullable="true" MaxLength="255" />
+                <Property Name="ISMOBILEENABLED" Type="Edm.String" Nullable="false" MaxLength="5" />
+                <Property Name="CREATEDBY" Type="Edm.String" Nullable="false" MaxLength="256" />
+                <Property Name="CREATEDDATE" Type="Edm.DateTime" Nullable="false" />
+                <Property Name="LASTMODIFIEDDATE" Type="Edm.DateTime" Nullable="false" />
+                <Property Name="LASTMODIFIEDBY" Type="Edm.String" Nullable="false" MaxLength="256" />
+                <NavigationProperty Name="report" Relationship="sap.sop.services.analytics.sapsopa.reports_reportType" FromRole="reportsPrincipal" ToRole="reportDependent" />
+            </EntityType>
+            <EntityType Name="reportpagesType">
+                <Key>
+                    <PropertyRef Name="REPORTPAGEID" />
+                </Key>
+                <Property Name="REPORTPAGEID" Type="Edm.String" Nullable="false" MaxLength="32" />
+                <Property Name="REPORTPAGENAME" Type="Edm.String" Nullable="true" MaxLength="32" />
+                <Property Name="REPORTPAGEDESCR" Type="Edm.String" Nullable="true" MaxLength="255" />
+                <Property Name="ISOWNER" Type="Edm.String" Nullable="false" MaxLength="5" />
+                <Property Name="ISMOBILEENABLED" Type="Edm.String" Nullable="false" MaxLength="5" />
+                <Property Name="LAYOUTID" Type="Edm.String" Nullable="false" MaxLength="32" />
+                <Property Name="NUMBEROFROWS" Type="Edm.Byte" Nullable="false" />
+                <Property Name="NUMBEROFCOLUMNS" Type="Edm.Byte" Nullable="false" />
+                <Property Name="ROWHEIGHT" Type="Edm.String" Nullable="false" MaxLength="20" />
+                <Property Name="COLUMNWIDTH" Type="Edm.String" Nullable="false" MaxLength="20" />
+                <Property Name="CREATEDBY" Type="Edm.String" Nullable="false" MaxLength="256" />
+                <Property Name="CREATEDDATE" Type="Edm.DateTime" Nullable="false" />
+                <Property Name="LASTMODIFIEDDATE" Type="Edm.DateTime" Nullable="false" />
+                <Property Name="LASTMODIFIEDBY" Type="Edm.String" Nullable="false" MaxLength="256" />
+                <NavigationProperty Name="reportpagelayout" Relationship="sap.sop.services.analytics.sapsopa.reportpages_reportpagelayoutType" FromRole="reportpagesPrincipal" ToRole="reportpagelayoutDependent" />
+            </EntityType>
+            <EntityType Name="reportviewsType">
+                <Key>
+                    <PropertyRef Name="REPORTVIEWID" />
+                </Key>
+                <Property Name="REPORTVIEWID" Type="Edm.String" Nullable="false" MaxLength="32" />
+                <Property Name="REPORTVIEWNAME" Type="Edm.String" Nullable="true" MaxLength="32" />
+                <Property Name="REPORTVIEWDESCR" Type="Edm.String" Nullable="true" MaxLength="255" />
+                <Property Name="REPORTVIEWTYPE" Type="Edm.String" Nullable="false" MaxLength="20" />
+                <Property Name="ISOWNER" Type="Edm.String" Nullable="false" MaxLength="5" />
+                <Property Name="ISMOBILEENABLED" Type="Edm.String" Nullable="false" MaxLength="5" />
+                <Property Name="REPORTID" Type="Edm.String" Nullable="false" MaxLength="32" />
+                <Property Name="DISPLAYLEGEND" Type="Edm.String" Nullable="false" MaxLength="5" />
+                <Property Name="LEGENDPOSITION" Type="Edm.String" Nullable="false" MaxLength="15" />
+                <Property Name="CREATEDBY" Type="Edm.String" Nullable="false" MaxLength="256" />
+                <Property Name="CREATEDDATE" Type="Edm.DateTime" Nullable="false" />
+                <Property Name="LASTMODIFIEDDATE" Type="Edm.DateTime" Nullable="false" />
+                <Property Name="LASTMODIFIEDBY" Type="Edm.String" Nullable="false" MaxLength="256" />
+                <NavigationProperty Name="reportview" Relationship="sap.sop.services.analytics.sapsopa.reportviews_reportviewType" FromRole="reportviewsPrincipal" ToRole="reportviewDependent" />
+                <NavigationProperty Name="reportviewfilters" Relationship="sap.sop.services.analytics.sapsopa.reportviews_reportviewfiltersType" FromRole="reportviewsPrincipal" ToRole="reportviewfiltersDependent" />
+            </EntityType>
+            <EntityType Name="reportpagelayoutType">
+                <Key>
+                    <PropertyRef Name="REPORTPAGEID" />
+                    <PropertyRef Name="ROWNUMBER" />
+                    <PropertyRef Name="COLUMNNUMBER" />
+                </Key>
+                <Property Name="REPORTPAGEID" Type="Edm.String" Nullable="false" MaxLength="32" />
+                <Property Name="ROWNUMBER" Type="Edm.Byte" Nullable="false" />
+                <Property Name="COLUMNNUMBER" Type="Edm.Byte" Nullable="false" />
+                <Property Name="REPORTID" Type="Edm.String" Nullable="false" MaxLength="32" />
+                <Property Name="REPORTVIEWNAME" Type="Edm.String" Nullable="true" MaxLength="32" />
+                <Property Name="REPORTVIEWID" Type="Edm.String" Nullable="false" MaxLength="32" />
+                <Property Name="REPORTVIEWTYPE" Type="Edm.String" Nullable="false" MaxLength="20" />
+                <Property Name="ROWSPAN" Type="Edm.Byte" Nullable="false" />
+                <Property Name="COLUMNSPAN" Type="Edm.Byte" Nullable="false" />
+                <Property Name="LEGENDPOSITION" Type="Edm.String" Nullable="false" MaxLength="15" />
+                <Property Name="DISPLAYLEGEND" Type="Edm.String" Nullable="false" MaxLength="5" />
+                <NavigationProperty Name="reportview" Relationship="sap.sop.services.analytics.sapsopa.reportpagelayout_reportviewType" FromRole="reportpagelayoutPrincipal" ToRole="reportviewDependent" />
+            </EntityType>
+            <EntityType Name="reportviewType">
+                <Key>
+                    <PropertyRef Name="REPORTVIEWID" />
+                    <PropertyRef Name="ATTR_ID" />
+                </Key>
+                <Property Name="REPORTID" Type="Edm.String" Nullable="false" MaxLength="32" />
+                <Property Name="REPORTVIEWID" Type="Edm.String" Nullable="false" MaxLength="32" />
+                <Property Name="ATTR_ID" Type="Edm.String" Nullable="false" MaxLength="32" />
+                <Property Name="ATTR_NAME" Type="Edm.String" Nullable="true" MaxLength="250" />
+                <Property Name="ATTR_TYPE" Type="Edm.String" Nullable="false" MaxLength="1" />
+                <Property Name="SEQUENCE" Type="Edm.Byte" Nullable="false" />
+            </EntityType>
+            <EntityType Name="reportType">
+                <Key>
+                    <PropertyRef Name="REPORTID" />
+                    <PropertyRef Name="ATTR_ID" />
+                </Key>
+                <Property Name="REPORTID" Type="Edm.String" Nullable="false" MaxLength="32" />
+                <Property Name="ATTR_ID" Type="Edm.String" Nullable="false" MaxLength="32" />
+                <Property Name="ATTR_NAME" Type="Edm.String" Nullable="true" MaxLength="250" />
+                <Property Name="ATTR_TYPE" Type="Edm.String" Nullable="false" MaxLength="1" />
+                <Property Name="PLAN_OBJECT" Type="Edm.String" Nullable="true" MaxLength="32" />
+                <Property Name="PLAN_OBJECT_DESCR" Type="Edm.String" Nullable="true" MaxLength="250" />
+            </EntityType>
+            <EntityType Name="reportviewfiltersType">
+                <Key>
+                    <PropertyRef Name="REPORTVIEWID" />
+                    <PropertyRef Name="OPERATOR" />
+                    <PropertyRef Name="ATTR" />
+                    <PropertyRef Name="ATTR_VAL" />
+                </Key>
+                <Property Name="REPORTVIEWID" Type="Edm.String" Nullable="true" MaxLength="32" />
+                <Property Name="OPERATOR" Type="Edm.String" Nullable="true" MaxLength="1" />
+                <Property Name="ATTR" Type="Edm.String" Nullable="true" MaxLength="32" />
+                <Property Name="ATTR_VAL" Type="Edm.String" Nullable="true" MaxLength="500" />
+            </EntityType>
+            <Association Name="reports_reportType">
+                <End Type="sap.sop.services.analytics.sapsopa.reportsType" Role="reportsPrincipal" Multiplicity="1" />
+                <End Type="sap.sop.services.analytics.sapsopa.reportType" Role="reportDependent" Multiplicity="*" />
+                <ReferentialConstraint>
+                    <Principal Role="reportsPrincipal">
+                        <PropertyRef Name="REPORTID" />
+                    </Principal>
+                    <Dependent Role="reportDependent">
+                        <PropertyRef Name="REPORTID" />
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="reportviews_reportviewType">
+                <End Type="sap.sop.services.analytics.sapsopa.reportviewsType" Role="reportviewsPrincipal" Multiplicity="1" />
+                <End Type="sap.sop.services.analytics.sapsopa.reportviewType" Role="reportviewDependent" Multiplicity="*" />
+                <ReferentialConstraint>
+                    <Principal Role="reportviewsPrincipal">
+                        <PropertyRef Name="REPORTVIEWID" />
+                    </Principal>
+                    <Dependent Role="reportviewDependent">
+                        <PropertyRef Name="REPORTVIEWID" />
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="reportpages_reportpagelayoutType">
+                <End Type="sap.sop.services.analytics.sapsopa.reportpagesType" Role="reportpagesPrincipal" Multiplicity="1" />
+                <End Type="sap.sop.services.analytics.sapsopa.reportpagelayoutType" Role="reportpagelayoutDependent" Multiplicity="*" />
+                <ReferentialConstraint>
+                    <Principal Role="reportpagesPrincipal">
+                        <PropertyRef Name="REPORTPAGEID" />
+                    </Principal>
+                    <Dependent Role="reportpagelayoutDependent">
+                        <PropertyRef Name="REPORTPAGEID" />
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="reportpagelayout_reportviewType">
+                <End Type="sap.sop.services.analytics.sapsopa.reportpagelayoutType" Role="reportpagelayoutPrincipal" Multiplicity="1" />
+                <End Type="sap.sop.services.analytics.sapsopa.reportviewType" Role="reportviewDependent" Multiplicity="*" />
+                <ReferentialConstraint>
+                    <Principal Role="reportpagelayoutPrincipal">
+                        <PropertyRef Name="REPORTVIEWID" />
+                    </Principal>
+                    <Dependent Role="reportviewDependent">
+                        <PropertyRef Name="REPORTVIEWID" />
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <Association Name="reportviews_reportviewfiltersType">
+                <End Type="sap.sop.services.analytics.sapsopa.reportviewsType" Role="reportviewsPrincipal" Multiplicity="1" />
+                <End Type="sap.sop.services.analytics.sapsopa.reportviewfiltersType" Role="reportviewfiltersDependent" Multiplicity="*" />
+                <ReferentialConstraint>
+                    <Principal Role="reportviewsPrincipal">
+                        <PropertyRef Name="REPORTVIEWID" />
+                    </Principal>
+                    <Dependent Role="reportviewfiltersDependent">
+                        <PropertyRef Name="REPORTVIEWID" />
+                    </Dependent>
+                </ReferentialConstraint>
+            </Association>
+            <EntityContainer Name="sapsopa" m:IsDefaultEntityContainer="true">
+                <EntitySet Name="reports" EntityType="sap.sop.services.analytics.sapsopa.reportsType" />
+                <EntitySet Name="reportpages" EntityType="sap.sop.services.analytics.sapsopa.reportpagesType" />
+                <EntitySet Name="reportviews" EntityType="sap.sop.services.analytics.sapsopa.reportviewsType" />
+                <EntitySet Name="reportpagelayout" EntityType="sap.sop.services.analytics.sapsopa.reportpagelayoutType" />
+                <EntitySet Name="reportview" EntityType="sap.sop.services.analytics.sapsopa.reportviewType" />
+                <EntitySet Name="report" EntityType="sap.sop.services.analytics.sapsopa.reportType" />
+                <EntitySet Name="reportviewfilters" EntityType="sap.sop.services.analytics.sapsopa.reportviewfiltersType" />
+                <AssociationSet Name="reports_report" Association="sap.sop.services.analytics.sapsopa.reports_reportType" >
+                    <End Role="reportsPrincipal" EntitySet="reports" />
+                    <End Role="reportDependent" EntitySet="report" />
+                </AssociationSet>
+                <AssociationSet Name="reportviews_reportview" Association="sap.sop.services.analytics.sapsopa.reportviews_reportviewType" >
+                    <End Role="reportviewsPrincipal" EntitySet="reportviews" />
+                    <End Role="reportviewDependent" EntitySet="reportview" />
+                </AssociationSet>
+                <AssociationSet Name="reportpages_reportpagelayout" Association="sap.sop.services.analytics.sapsopa.reportpages_reportpagelayoutType" >
+                    <End Role="reportpagesPrincipal" EntitySet="reportpages" />
+                    <End Role="reportpagelayoutDependent" EntitySet="reportpagelayout" />
+                </AssociationSet>
+                <AssociationSet Name="reportpagelayout_reportview" Association="sap.sop.services.analytics.sapsopa.reportpagelayout_reportviewType" >
+                    <End Role="reportpagelayoutPrincipal" EntitySet="reportpagelayout" />
+                    <End Role="reportviewDependent" EntitySet="reportview" />
+                </AssociationSet>
+                <AssociationSet Name="reportviews_reportviewfilters" Association="sap.sop.services.analytics.sapsopa.reportviews_reportviewfiltersType" >
+                    <End Role="reportviewsPrincipal" EntitySet="reportviews" />
+                    <End Role="reportviewfiltersDependent" EntitySet="reportviewfilters" />
+                </AssociationSet>
+            </EntityContainer>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>

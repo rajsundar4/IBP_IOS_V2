@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+  .x.axis path {
+      display: none;
+  }
+  .axis line, .domain {
+      fill: none;
+      stroke: #C2C2C2;
+      stroke-width: 1;
+      shape-rendering: crispEdges;
+  }
+  .svg-container {
+      display: inline-block;
+      overflow: hidden;
+      padding-bottom: 100%;
+      position: relative;
+      vertical-align: middle;
+  }
+  .legend rect {
+      opacity:0.8;
+  }
+  .legend-item text{
+     font-size:12px;
+  }
+ .tick text{
+     font-size:12px;
+  }
+ .axis>text{
+     font-weight: bolder;
+     font-size:14px;
+  }
+ .active {
+     opacity: 0.5;
+  }
+  svg rect{
+    shape-rendering: crispEdges;
+  }
+ 
+  body , svg{
+      font-family:'Open Sans', Arial, Helvetica, sans-serif;
+      font-size:12px;
+  }
+</style>
+
+<title>Combination Bar-Line (V) Chart</title>
+
+<body>
+ <div id="chart"></div>
+
+  <script src="d3.v3.min.js"></script>
+  <script type="text/javascript" src="chart.js"></script>
+
+  <script type="text/javascript">
+
+  /* var data = [
+          {PERIODID0:"W34-2016", DAYSOFSUPPLYLASTRUN:12, DAYSOFSUPPLY:null},
+          {PERIODID0:"W34-2016", DAYSOFSUPPLYLASTRUN:null, DAYSOFSUPPLY:null},
+          {PERIODID0:"W35-2016", DAYSOFSUPPLYLASTRUN:null, DAYSOFSUPPLY:null},
+          {PERIODID0:"W35-2016", DAYSOFSUPPLYLASTRUN:323, DAYSOFSUPPLY:56},
+          {PERIODID0:"W36-2016", DAYSOFSUPPLYLASTRUN:null, DAYSOFSUPPLY:null},
+          {PERIODID0:"W36-2016", DAYSOFSUPPLYLASTRUN:null, DAYSOFSUPPLY:56},
+          {PERIODID0:"W37-2016", DAYSOFSUPPLYLASTRUN:null, DAYSOFSUPPLY:null},
+          {PERIODID0:"W37-2016", DAYSOFSUPPLYLASTRUN:12, DAYSOFSUPPLY:null},
+          {PERIODID0:"W38-2016", DAYSOFSUPPLYLASTRUN:null, DAYSOFSUPPLY:null},
+          {PERIODID0:"W38-2016", DAYSOFSUPPLYLASTRUN:null, DAYSOFSUPPLY:null},
+          {PERIODID0:"W39-2016", DAYSOFSUPPLYLASTRUN:null, DAYSOFSUPPLY:null},
+          {PERIODID0:"W39-2016", DAYSOFSUPPLYLASTRUN:32, DAYSOFSUPPLY:65},
+          {PERIODID0:"W40-2016", DAYSOFSUPPLYLASTRUN:null, DAYSOFSUPPLY:null},
+          {PERIODID0:"W40-2016", DAYSOFSUPPLYLASTRUN:null, DAYSOFSUPPLY:5},
+          ]
+
+
+  var presets = {
+     dimensions: [{axis : 1, name : 'Weekly', value: "{PERIODID0}"},],
+     measures: [{name : 'Safety Days of Supply (Last Run)', value : "{DAYSOFSUPPLYLASTRUN}"},
+          {name : 'Safety Days of Supply (Recommended)', value : "{DAYSOFSUPPLY}"},],
+     dataset: data, 
+     height: "225px",
+     plotArea: {  //plotArea As it is
+       'colorPalette': ['#21a3f1', '#ff872e', '#79b51a', '#f7e326', '#074389', '#7876e5', '#d5eb7e', '#488bed', '#ffc145', '#8a8175', '#0b7c16']
+     },
+     title : { visible : false, text :'Days of Supply Trends' },
+   }*/
+
+ /* var data = [
+          {LOCIDDESC:"Bangalore", SAFETYSTOCKLASTRUN:123, RECOMMENDEDSAFETYSTOCK:78},
+          {LOCIDDESC:"Bello Horizonte", SAFETYSTOCKLASTRUN:13, RECOMMENDEDSAFETYSTOCK:678},
+          {LOCIDDESC:"Pittsburgh", SAFETYSTOCKLASTRUN:null, RECOMMENDEDSAFETYSTOCK:null},
+          {LOCIDDESC:"Walldorf", SAFETYSTOCKLASTRUN:5, RECOMMENDEDSAFETYSTOCK:67},
+          ]
+
+  var presets = {
+     dimensions: [{axis : 1, name : 'Location', value: "{LOCIDDESC}"},],
+     measures: [{name : 'Safety Stock (Last Run)', value : "{SAFETYSTOCKLASTRUN}"},
+          {name : 'Recommended Safety Stock', value : "{RECOMMENDEDSAFETYSTOCK}"},],
+     dataset: data, 
+     height: "225px",
+     plotArea: {  //plotArea As it is
+       'colorPalette': ['#21a3f1','#ff872e','#79b51a','#f7e326','#074389','#7876e5','#d5eb7e','#488bed','#ffc145','#8a8175','#0b7c16']
+     },
+     title : { visible : false, text :'Safety Stock Inventory by Location vs. Last Week  (Units)' },
+   }*/
+
+   var data = [
+          {PERIODID0:"May'14", SALESFCSTREV:74397701.9996, TARGETREV:64676171.8},
+          {PERIODID0:"Jun'14", SALESFCSTREV:69826558.9076, TARGETREV:64457557.25},
+          {PERIODID0:"Jul'14", SALESFCSTREV:71157385.6174, TARGETREV:65178200.79},
+          {PERIODID0:"Aug'14", SALESFCSTREV:71590601.296541, TARGETREV:65105329.41},
+          {PERIODID0:"Sep'14", SALESFCSTREV:72250984.9496, TARGETREV:67118126.74},
+          {PERIODID0:"Oct'14", SALESFCSTREV:72252169.4578, TARGETREV:66707869.29},
+          ]
+          
+    var presets = {
+     dimensions: [{axis : 1, name : 'Monthly', value: "{PERIODID0}"},],
+     measures: [{name : 'Sales Fcst Rev', value : "{SALESFCSTREV}"},
+          {name : 'Target Rev', value : "{TARGETREV}"},],
+     dataset: data, 
+     height: "225px",
+     plotArea: {  //plotArea As it is
+       'colorPalette': ['#21a3f1','#ff872e','#79b51a','#f7e326','#074389','#7876e5','#d5eb7e','#488bed','#ffc145','#8a8175','#0b7c16']
+     },
+     title : { visible : false, text :'Safety Stock Inventory by Location vs. Last Week  (Units)' },
+   }
+
+   //function call to render the respective chart
+     CombiationChart("chart", presets) // ("id-where-chart-is rendered", presets which has all the pre-requisites)
+
+</script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="SplashViewController">
+            <connections>
+                <outlet property="view" destination="18" id="23"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="18">
+            <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="splash_lastframe@2x-modified_no_SAP_logo.png" translatesAutoresizingMaskIntoConstraints="NO" id="9">
+                    <rect key="frame" x="0.0" y="0.0" width="1033" height="768"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="1033" id="74"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="9" firstAttribute="leading" secondItem="18" secondAttribute="leading" id="58"/>
+                <constraint firstItem="9" firstAttribute="top" secondItem="18" secondAttribute="top" id="68"/>
+                <constraint firstAttribute="bottom" secondItem="9" secondAttribute="bottom" id="75"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="splash_lastframe@2x-modified_no_SAP_logo.png" width="2048" height="1536"/>
+    </resources>
+</document>

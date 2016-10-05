@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="10117" systemVersion="15C50" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProcessCellVC">
+            <connections>
+                <outlet property="scrollView" destination="D0w-zM-Xr5" id="FGx-uQ-8US"/>
+                <outlet property="timeStampLabel" destination="JMW-lJ-S2E" id="JLO-HP-9mx"/>
+                <outlet property="titleLabel" destination="JlY-gK-l0k" id="wGB-Od-S87"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="1004" height="133"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Process" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JlY-gK-l0k">
+                    <rect key="frame" x="10" y="0.0" width="600" height="21"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="600" id="Vhv-WI-COM"/>
+                        <constraint firstAttribute="height" constant="21" id="oqU-5D-n6w"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="D0w-zM-Xr5">
+                    <rect key="frame" x="0.0" y="21" width="1004" height="97"/>
+                </scrollView>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Timestamp" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JMW-lJ-S2E">
+                    <rect key="frame" x="10" y="118" width="600" height="15"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="600" id="Z1n-EO-oS6"/>
+                        <constraint firstAttribute="height" constant="15" id="h8b-Cb-Mhv"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="D0w-zM-Xr5" firstAttribute="top" secondItem="JlY-gK-l0k" secondAttribute="bottom" id="3FI-0V-rgW"/>
+                <constraint firstItem="D0w-zM-Xr5" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="X99-mp-h0j"/>
+                <constraint firstItem="JMW-lJ-S2E" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="abW-yR-Sjh"/>
+                <constraint firstAttribute="trailing" secondItem="D0w-zM-Xr5" secondAttribute="trailing" id="btv-PP-kCe"/>
+                <constraint firstItem="JlY-gK-l0k" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="hgN-3B-PWQ"/>
+                <constraint firstItem="JMW-lJ-S2E" firstAttribute="top" secondItem="D0w-zM-Xr5" secondAttribute="bottom" id="qA1-dP-TDI"/>
+                <constraint firstItem="JlY-gK-l0k" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="xeL-tl-tpX"/>
+                <constraint firstAttribute="bottom" secondItem="JMW-lJ-S2E" secondAttribute="bottom" id="z86-eE-24z"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <simulatedOrientationMetrics key="simulatedOrientationMetrics" orientation="landscapeRight"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="223" y="215.5"/>
+        </view>
+    </objects>
+</document>

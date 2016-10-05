@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<service 
+    xmlns:atom="http://www.w3.org/2005/Atom" 
+    xmlns:app="http://www.w3.org/2007/app" 
+    xmlns="http://www.w3.org/2007/app" xml:base="http://sandbox01.sop.ondemand.com/sap/sop/sopfnd/services/analytics/sapsopa.xsodata/">
+    <workspace>
+        <atom:title>Default</atom:title>
+        <collection href="excludechars">
+            <atom:title>excludechars</atom:title>
+        </collection>
+        <collection href="reportpagedefault">
+            <atom:title>reportpagedefault</atom:title>
+        </collection>
+        <collection href="reports">
+            <atom:title>reports</atom:title>
+        </collection>
+        <collection href="reportpages">
+            <atom:title>reportpages</atom:title>
+        </collection>
+        <collection href="reportviews">
+            <atom:title>reportviews</atom:title>
+        </collection>
+        <collection href="reportpagelayout">
+            <atom:title>reportpagelayout</atom:title>
+        </collection>
+        <collection href="reportview">
+            <atom:title>reportview</atom:title>
+        </collection>
+        <collection href="report">
+            <atom:title>report</atom:title>
+        </collection>
+        <collection href="reportqueryconstraints">
+            <atom:title>reportqueryconstraints</atom:title>
+        </collection>
+        <collection href="reportviewsfilter">
+            <atom:title>reportviewsfilter</atom:title>
+        </collection>
+        <collection href="sharedobjects">
+            <atom:title>sharedobjects</atom:title>
+        </collection>
+        <collection href="reportpagenav">
+            <atom:title>reportpagenav</atom:title>
+        </collection>
+        <collection href="reportviewpages">
+            <atom:title>reportviewpages</atom:title>
+        </collection>
+        <collection href="reportviewwbfav">
+            <atom:title>reportviewwbfav</atom:title>
+        </collection>
+    </workspace>
+</service>

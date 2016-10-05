@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.iPad.XIB" version="3.0" toolsVersion="5056" systemVersion="13D65" targetRuntime="iOS.CocoaTouch.iPad" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="KPICellVC">
+            <connections>
+                <outlet property="cLabel" destination="34k-i0-f35" id="PTi-Tv-grH"/>
+                <outlet property="kLabel" destination="iwj-6r-JOa" id="C0k-Pd-eh9"/>
+                <outlet property="timestamp" destination="wT6-8b-iJY" id="7fv-vq-xmj"/>
+                <outlet property="titleLabel" destination="E0w-WL-oFx" id="ta6-ta-Jn1"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="244" height="266"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gear.png" translatesAutoresizingMaskIntoConstraints="NO" id="70b-g3-rMa">
+                    <rect key="frame" x="209" y="0.0" width="35" height="30"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="hFK-YL-0XM"/>
+                        <constraint firstAttribute="width" constant="35" id="mJT-mu-XyR"/>
+                    </constraints>
+                </imageView>
+                <label opaque="NO" clipsSubviews="YES" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" lineBreakMode="wordWrap" baselineAdjustment="none" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E0w-WL-oFx">
+                    <rect key="frame" x="10" y="0.0" width="199" height="66"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="66" id="AY6-XB-RGz"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Timestamp" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wT6-8b-iJY">
+                    <rect key="frame" x="10" y="244" width="233" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="K-Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" highlighted="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iwj-6r-JOa">
+                    <rect key="frame" x="10" y="52" width="233" height="110"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="50"/>
+                    <color key="textColor" cocoaTouchSystemColor="viewFlipsideBackgroundColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="C-Type" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" enabled="NO" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="34k-i0-f35">
+                    <rect key="frame" x="10" y="205" width="234" height="31"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="70b-g3-rMa" secondAttribute="trailing" id="0pu-8b-Bl4"/>
+                <constraint firstItem="70b-g3-rMa" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9rY-a8-YKQ"/>
+                <constraint firstItem="70b-g3-rMa" firstAttribute="leading" secondItem="E0w-WL-oFx" secondAttribute="trailing" id="Lod-aO-gsM"/>
+                <constraint firstItem="E0w-WL-oFx" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="10" id="ocs-EX-4is"/>
+                <constraint firstItem="E0w-WL-oFx" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="zoq-4Z-B8z"/>
+            </constraints>
+        </view>
+    </objects>
+    <resources>
+        <image name="gear.png" width="128" height="128"/>
+    </resources>
+</document>

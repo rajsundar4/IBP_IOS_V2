@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+     <html>
+     <head>
+     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<title>Dummy page title</title>
+<script id="sap-ui-bootstrap" type="text/javascript"     src="sapui5-static/resources/sap-ui-core.js" data-sap-ui-libs="sap.ui.commons,sap.viz">     </script>
+<script>
+var oModel = new sap.ui.model.json.JSONModel({
+data : [
+{PERIODID0:"Oct'14", SALESFCSTREV:7317000, AOPREV:7903976.4195, CONSENSUSDEMANDREV:7316972},
+{PERIODID0:"Nov'14", SALESFCSTREV:7362000, AOPREV:9261796.8, CONSENSUSDEMANDREV:7362000},
+{PERIODID0:"Dec'14", SALESFCSTREV:7316999.9268, AOPREV:10187976.48, CONSENSUSDEMANDREV:7317000.0001},
+{PERIODID0:"Jan'15", SALESFCSTREV:20000000.19998, AOPREV:11052631.2, CONSENSUSDEMANDREV:7379977.619971},
+{PERIODID0:"Feb'15", SALESFCSTREV:22000000.21996, AOPREV:11842105.2, CONSENSUSDEMANDREV:7370986.628969},
+{PERIODID0:"Mar'15", SALESFCSTREV:24000000.23999, AOPREV:13421052.57, CONSENSUSDEMANDREV:7894672.10527},
+{PERIODID0:"Apr'15", SALESFCSTREV:26000000.25998, AOPREV:13815789.408, CONSENSUSDEMANDREV:9867990.13198},
+]
+});
+sap.ui.getCore().setModel(oModel);
+var dataset = new sap.viz.ui5.data.FlattenedDataset({
+dimensions : [
+{axis : 1, name : 'Monthly', value: "{PERIODID0}"},
+],
+measures : [{name : 'Sales Fcst Rev', value : "{SALESFCSTREV}"},
+{name : 'AOP Rev', value : "{AOPREV}"},
+{name : 'Consensus Demand Plan Rev', value : "{CONSENSUSDEMANDREV}"},
+],
+data : { path : "/data" }
+});
+new sap.viz.ui5.Line("oChart",{
+width : "100%",
+height : "500px",
+plotArea:{
+'colorPalette' : ['#21a3f1','#ff872e','#3f7cc4','#ffe52a','#074389','#f9bc23','#a89ff7','#ffa466','#6666cc','#d6c196','#4a4a8e','#bc9158','#21d6d6','#846544','#1aaba3','#533723','#0d5256','#dbbd09','#a2d3fc','#baa50c','#729bcc','#9b830b','#47617f','#685400']},
+title : { visible : true, text :'Consensus Revenue vs AOP X Phone' },
+dataset: dataset
+}).placeAt("content");
+</script>
+</head>
+<body class="sapUiBody">
+<div id="content"></div>
+</body>
+</html>

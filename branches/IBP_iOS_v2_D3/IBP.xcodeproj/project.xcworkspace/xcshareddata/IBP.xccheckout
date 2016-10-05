@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>9C7F93D5-5A60-4775-8725-E0F1A646833D</string>
+	<key>IDESourceControlProjectName</key>
+	<string>project</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>1a120408-3432-ed45-bf6b-d8a191c3519f</key>
+		<string>https://greenbay.jas-tec.com:7880/svn/IBP-iOS-v1</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>trunk/IBP.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>1a120408-3432-ed45-bf6b-d8a191c3519f</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>1a120408-3432-ed45-bf6b-d8a191c3519f</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>1a120408-3432-ed45-bf6b-d8a191c3519f</string>
+			<key>IDESourceControlWCCName</key>
+			<string>IBP-iOS-v1</string>
+		</dict>
+	</array>
+</dict>
+</plist>

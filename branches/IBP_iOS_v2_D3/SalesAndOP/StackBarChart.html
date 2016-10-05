@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+  .x.axis path {
+      display: none;
+  }
+  .axis line, .domain {
+      fill: none;
+      stroke: #C2C2C2;
+      stroke-width: 1;
+      shape-rendering: crispEdges;
+  }
+  .svg-container {
+      display: inline-block;
+      overflow: hidden;
+      padding-bottom: 100%;
+      position: relative;
+      vertical-align: middle;
+  }
+  .legend rect {
+      opacity:0.8;
+  }
+  .legend-item text{
+     font-size:12px;
+  }
+ .tick text{
+     font-size:12px;
+  }
+ .axis>text{
+     font-weight: bolder;
+     font-size:14px;
+  }
+ .active {
+     opacity: 0.5;
+  }
+
+  body , svg{
+      font-family:'Open Sans', Arial, Helvetica, sans-serif;
+      font-size:12px;
+  }
+</style>
+
+<title>Stacked Chart</title>
+
+<body>
+ <div id="chart"></div>
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="d3.v3.min.js"></script>
+  <script type="text/javascript" src="chart.js"></script>
+
+  <script type="text/javascript">
+   
+ /* var data = [
+    {PERIODID0:"2016-08-14", MATTYPEDESC:"FG", PRODCONF:10368},
+    {PERIODID0:"2016-08-14", MATTYPEDESC:"PACK", PRODCONF:0},
+    {PERIODID0:"2016-08-14", MATTYPEDESC:"RAW", PRODCONF:1244},
+    {PERIODID0:"2016-08-15", MATTYPEDESC:"FG", PRODCONF:10368},
+    {PERIODID0:"2016-08-15", MATTYPEDESC:"PACK", PRODCONF:0},
+    {PERIODID0:"2016-08-15", MATTYPEDESC:"RAW", PRODCONF:1244},
+    {PERIODID0:"2016-08-16", MATTYPEDESC:"FG", PRODCONF:10368},
+    {PERIODID0:"2016-08-16", MATTYPEDESC:"PACK", PRODCONF:0},
+    {PERIODID0:"2016-08-16", MATTYPEDESC:"RAW", PRODCONF:1244},
+    {PERIODID0:"2016-08-17", MATTYPEDESC:"FG", PRODCONF:4554},
+    {PERIODID0:"2016-08-17", MATTYPEDESC:"PACK", PRODCONF:0},
+    {PERIODID0:"2016-08-17", MATTYPEDESC:"RAW", PRODCONF:1244},
+    {PERIODID0:"2016-08-18", MATTYPEDESC:"FG", PRODCONF:4554},
+    {PERIODID0:"2016-08-18", MATTYPEDESC:"PACK", PRODCONF:0},
+    {PERIODID0:"2016-08-18", MATTYPEDESC:"RAW", PRODCONF:1244},
+    {PERIODID0:"2016-08-19", MATTYPEDESC:"FG", PRODCONF:13774},
+    {PERIODID0:"2016-08-19", MATTYPEDESC:"PACK", PRODCONF:0},
+    {PERIODID0:"2016-08-19", MATTYPEDESC:"RAW", PRODCONF:1244},
+    {PERIODID0:"2016-08-20", MATTYPEDESC:"FG", PRODCONF:17831},
+    {PERIODID0:"2016-08-20", MATTYPEDESC:"PACK", PRODCONF:0},
+    {PERIODID0:"2016-08-20", MATTYPEDESC:"RAW", PRODCONF:2311},
+    {PERIODID0:"2016-08-21", MATTYPEDESC:"FG", PRODCONF:17831},
+    {PERIODID0:"2016-08-21", MATTYPEDESC:"PACK", PRODCONF:0},
+    {PERIODID0:"2016-08-21", MATTYPEDESC:"RAW", PRODCONF:2311},
+    {PERIODID0:"2016-08-22", MATTYPEDESC:"FG", PRODCONF:17831},
+    {PERIODID0:"2016-08-22", MATTYPEDESC:"PACK", PRODCONF:0},
+    {PERIODID0:"2016-08-22", MATTYPEDESC:"RAW", PRODCONF:2311},
+    {PERIODID0:"2016-08-23", MATTYPEDESC:"FG", PRODCONF:17831},
+    {PERIODID0:"2016-08-23", MATTYPEDESC:"PACK", PRODCONF:0},
+    {PERIODID0:"2016-08-23", MATTYPEDESC:"RAW", PRODCONF:2311},
+    {PERIODID0:"2016-08-24", MATTYPEDESC:"FG", PRODCONF:8611},
+    {PERIODID0:"2016-08-24", MATTYPEDESC:"PACK", PRODCONF:0},
+    {PERIODID0:"2016-08-24", MATTYPEDESC:"RAW", PRODCONF:2311},
+    {PERIODID0:"2016-08-25", MATTYPEDESC:"FG", PRODCONF:8611},
+    {PERIODID0:"2016-08-25", MATTYPEDESC:"PACK", PRODCONF:0},
+    {PERIODID0:"2016-08-25", MATTYPEDESC:"RAW", PRODCONF:2311},
+    {PERIODID0:"2016-08-26", MATTYPEDESC:"FG", PRODCONF:16273},
+    {PERIODID0:"2016-08-26", MATTYPEDESC:"PACK", PRODCONF:0},
+    {PERIODID0:"2016-08-26", MATTYPEDESC:"RAW", PRODCONF:2311},
+    {PERIODID0:"2016-08-27", MATTYPEDESC:"FG", PRODCONF:9199},
+    {PERIODID0:"2016-08-27", MATTYPEDESC:"PACK", PRODCONF:0},
+    {PERIODID0:"2016-08-27", MATTYPEDESC:"RAW", PRODCONF:10775},
+  ]
+
+  var presets = {
+     dimensions: [{ //dimensions as it is
+       axis: 1,
+       name: 'Day',
+       value: "{PERIODID0}"
+     }, 
+     {
+      axis : 2,
+      name : 'Material Type', 
+      value: "{MATTYPEDESC}"
+    }],
+     measures: [{ //measures as it is
+       name: 'Production (Conf)',
+       value: "{PRODCONF}"
+     }, ],
+     dataset: data, 
+     height: "225px",
+     plotArea: {  //plotArea As it is
+       'colorPalette': ['#21a3f1', '#ff872e', '#79b51a', '#f7e326', '#074389', '#7876e5', '#d5eb7e', '#488bed', '#ffc145', '#8a8175', '#0b7c16']
+     },
+     title : { text :'Daily Production Report' },
+
+   }*/
+   var data = [
+          {PERIODID3:"Aug-16", PRDFAMILY:"Family 100-Headphones", PCAOPREV:9039840},
+          {PERIODID3:"Aug-16", PRDFAMILY:"Family 200-Music Docks", PCAOPREV:17071390},
+          {PERIODID3:"Aug-16", PRDFAMILY:"Family 300-Home Theater", PCAOPREV:0},
+          {PERIODID3:"Sep-16", PRDFAMILY:"Family 100-Headphones", PCAOPREV:10785810},
+          {PERIODID3:"Sep-16", PRDFAMILY:"Family 200-Music Docks", PCAOPREV:20960830},
+          {PERIODID3:"Sep-16", PRDFAMILY:"Family 300-Home Theater", PCAOPREV:0},
+          {PERIODID3:"Oct-16", PRDFAMILY:"Family 100-Headphones", PCAOPREV:8875630},
+          {PERIODID3:"Oct-16", PRDFAMILY:"Family 200-Music Docks", PCAOPREV:16735190},
+          {PERIODID3:"Oct-16", PRDFAMILY:"Family 300-Home Theater", PCAOPREV:0},
+          {PERIODID3:"Nov-16", PRDFAMILY:"Family 100-Headphones", PCAOPREV:8629420},
+          {PERIODID3:"Nov-16", PRDFAMILY:"Family 200-Music Docks", PCAOPREV:16296900},
+          {PERIODID3:"Nov-16", PRDFAMILY:"Family 300-Home Theater", PCAOPREV:0},
+          {PERIODID3:"Dec-16", PRDFAMILY:"Family 100-Headphones", PCAOPREV:10972710},
+          {PERIODID3:"Dec-16", PRDFAMILY:"Family 200-Music Docks", PCAOPREV:19755240},
+          {PERIODID3:"Dec-16", PRDFAMILY:"Family 300-Home Theater", PCAOPREV:0},
+          {PERIODID3:"Jan-17", PRDFAMILY:"Family 100-Headphones", PCAOPREV:8641460},
+          {PERIODID3:"Jan-17", PRDFAMILY:"Family 200-Music Docks", PCAOPREV:15581290},
+          {PERIODID3:"Jan-17", PRDFAMILY:"Family 300-Home Theater", PCAOPREV:1479020},
+          {PERIODID3:"Feb-17", PRDFAMILY:"Family 100-Headphones", PCAOPREV:8442690},
+          {PERIODID3:"Feb-17", PRDFAMILY:"Family 200-Music Docks", PCAOPREV:15984500},
+          {PERIODID3:"Feb-17", PRDFAMILY:"Family 300-Home Theater", PCAOPREV:9290880},
+          {PERIODID3:"Mar-17", PRDFAMILY:"Family 100-Headphones", PCAOPREV:11267040},
+          {PERIODID3:"Mar-17", PRDFAMILY:"Family 200-Music Docks", PCAOPREV:20708260},
+          {PERIODID3:"Mar-17", PRDFAMILY:"Family 300-Home Theater", PCAOPREV:23152950},
+          {PERIODID3:"Apr-17", PRDFAMILY:"Family 100-Headphones", PCAOPREV:8756770},
+          {PERIODID3:"Apr-17", PRDFAMILY:"Family 200-Music Docks", PCAOPREV:16272580},
+          {PERIODID3:"Apr-17", PRDFAMILY:"Family 300-Home Theater", PCAOPREV:24680460},
+          {PERIODID3:"May-17", PRDFAMILY:"Family 100-Headphones", PCAOPREV:8815800},
+          {PERIODID3:"May-17", PRDFAMILY:"Family 200-Music Docks", PCAOPREV:16940660},
+          {PERIODID3:"May-17", PRDFAMILY:"Family 300-Home Theater", PCAOPREV:24712630},
+          {PERIODID3:"Jun-17", PRDFAMILY:"Family 100-Headphones", PCAOPREV:10959370},
+          {PERIODID3:"Jun-17", PRDFAMILY:"Family 200-Music Docks", PCAOPREV:21664300},
+          {PERIODID3:"Jun-17", PRDFAMILY:"Family 300-Home Theater", PCAOPREV:30148240},
+          {PERIODID3:"Jul-17", PRDFAMILY:"Family 100-Headphones", PCAOPREV:8883980},
+          {PERIODID3:"Jul-17", PRDFAMILY:"Family 200-Music Docks", PCAOPREV:17630540},
+          {PERIODID3:"Jul-17", PRDFAMILY:"Family 300-Home Theater", PCAOPREV:25503550},
+          {PERIODID3:"Aug-17", PRDFAMILY:"Family 100-Headphones", PCAOPREV:11053630},
+          {PERIODID3:"Aug-17", PRDFAMILY:"Family 200-Music Docks", PCAOPREV:21431650},
+          {PERIODID3:"Aug-17", PRDFAMILY:"Family 300-Home Theater", PCAOPREV:30619350},
+          ]
+
+  var presets = {
+     dimensions: [{ //dimensions as it is
+       axis: 1,
+       name: 'Monthly',
+       value: "{PERIODID3}"
+     }, 
+     {
+      axis : 2,
+      name : 'Product Family', 
+      value: "{PRDFAMILY}"
+    }],
+     measures: [{ //measures as it is
+       name: 'AOP Revenue',
+       value: "{PCAOPREV}"
+     }, ],
+     dataset: data, 
+     height: "225px",
+     plotArea: {  //plotArea As it is
+       'colorPalette': ['#21a3f1', '#ff872e', '#79b51a', '#f7e326', '#074389', '#7876e5', '#d5eb7e', '#488bed', '#ffc145', '#8a8175', '#0b7c16']
+     },
+    title : { text :'AOP revenue by Family' },
+
+   }
+
+   //function call to render the respective chart
+     vSChart("chart", presets) // ("id-where-chart-is rendered", presets which has all the pre-requisites)
+
+</script>
+</body>
+</html>

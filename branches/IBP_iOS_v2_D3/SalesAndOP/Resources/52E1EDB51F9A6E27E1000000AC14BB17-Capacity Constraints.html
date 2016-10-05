@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+     <html>
+     <head>
+     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<title>Dummy page title</title>
+<script id="sap-ui-bootstrap" type="text/javascript"     src="sapui5-static/resources/sap-ui-core.js" data-sap-ui-libs="sap.ui.commons,sap.viz">     </script>
+<script>
+var oModel = new sap.ui.model.json.JSONModel({
+data : [
+{PERIODID2:"Q2 2014", CAPASUPPLY:255000, PCAPAUSAGE:325169.139695, PCAPADEMAND:325169.139695},
+{PERIODID2:"Q3 2014", CAPASUPPLY:364000, PCAPAUSAGE:455503.069991, PCAPADEMAND:455503.069991},
+{PERIODID2:"Q4 2014", CAPASUPPLY:357000, PCAPAUSAGE:451396.834248, PCAPADEMAND:451396.834248},
+{PERIODID2:"Q1 2015", CAPASUPPLY:332000, PCAPAUSAGE:471604.630716, PCAPADEMAND:471604.630716},
+{PERIODID2:"Q2 2015", CAPASUPPLY:367337.916662, PCAPAUSAGE:4879.499994, PCAPADEMAND:4879.499994},
+]
+});
+sap.ui.getCore().setModel(oModel);
+var dataset = new sap.viz.ui5.data.FlattenedDataset({
+dimensions : [
+{axis : 1, name : 'Quarterly', value: "{PERIODID2}"},
+],
+measures : [{name : 'Available Capacity', value : "{CAPASUPPLY}"},
+{name : 'Capacity Load', value : "{PCAPAUSAGE}"},
+{name : 'Capacity Needed', value : "{PCAPADEMAND}"},
+],
+data : { path : "/data" }
+});
+new sap.viz.ui5.Combination("oChart",{
+width : "100%",
+height : "500px",
+plotArea:{
+'colorPalette' : ['#21a3f1','#ff872e','#3f7cc4','#ffe52a','#074389','#f9bc23','#a89ff7','#ffa466','#6666cc','#d6c196','#4a4a8e','#bc9158','#21d6d6','#846544','#1aaba3','#533723','#0d5256','#dbbd09','#a2d3fc','#baa50c','#729bcc','#9b830b','#47617f','#685400']},
+title : { visible : true, text :'Capacity Constraints' },
+dataset: dataset
+}).placeAt("content");
+</script>
+</head>
+<body class="sapUiBody">
+<div id="content"></div>
+</body>
+</html>

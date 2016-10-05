@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Gateway Service Details</string>
+		</dict>
+		<dict>
+			<key>AutocapitalizationType</key>
+			<string>None</string>
+			<key>AutocorrectionType</key>
+			<string>No</string>
+			<key>DefaultValue</key>
+			<string>http://sandbox01.sop.ondemand.com/sap/sop/sopfnd/services/analytics/sapsopa.xsodata/</string>
+			<key>Key</key>
+			<string>endPointURL</string>
+			<key>KeyboardType</key>
+			<string>URL</string>
+			<key>Title</key>
+			<string>URL</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+		</dict>
+		<dict>
+			<key>AutocapitalizationType</key>
+			<string>None</string>
+			<key>AutocorrectionType</key>
+			<string>No</string>
+			<key>DefaultValue</key>
+			<string></string>
+			<key>Key</key>
+			<string>endPointClient</string>
+			<key>KeyboardType</key>
+			<string>NumberPad</string>
+			<key>Title</key>
+			<string>SAP Client</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>These settings are required when Gateway is selected as the Connection Mode</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+	</array>
+	<key>StringsTable</key>
+	<string>Root</string>
+</dict>
+</plist>

@@ -1,0 +1,162 @@
+<!--<!doctype html>-->
+<!--<html>-->
+<!--  <head>-->
+<!--    <meta charset='utf-8'>-->
+<!--    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">-->
+<!--    <link href="nv.d3.css" rel="stylesheet">-->
+<!--    <script src="d3.js"></script>-->
+<!--    <script src="nv.d3.js"></script>-->
+<!--    <script src="dataGenerator.js"></script>-->
+<!--    <script>-->
+<!--      var mod = DATAG_MOD();-->
+<!---->
+<!--      var width = window.innerWidth,-->
+<!--      height = window.innerHeight,-->
+<!--      radius = Math.min(width, height) / 2;-->
+<!--      var color = d3.scale.category10(); // var color = d3.scale.category20();-->
+<!---->
+<!--      var chart = nv.models.pieChart()-->
+<!--        .x(function(d) { return d.label; })-->
+<!--        .y(function(d) { return d.value; })-->
+<!--        .showLabels(true)-->
+<!--        .labelThreshold(0.5)-->
+<!--        .labelType("percent")-->
+<!--        .donut(true)-->
+<!--        .donutRatio(0.35);-->
+<!---->
+<!--      function loadPieChart() {-->
+<!--        nv.addGraph(function(){-->
+<!--          d3.select("#chart svg")-->
+<!--            .attr("width", width)-->
+<!--            .attr("height", height)-->
+<!--            .datum(mod.newDataSet())-->
+<!--            .transition().duration(350)-->
+<!--            .call(chart);-->
+<!---->
+<!--          return chart;-->
+<!--        });-->
+<!--      }-->
+<!---->
+<!--      //Update the Graph-->
+<!--      function updateGraph() {-->
+<!--        var data = mod.newDataSet();-->
+<!---->
+<!--        d3.select("#chart svg")-->
+<!--          .datum(data)-->
+<!--          .transition().duration(350)-->
+<!--          .call(chart);-->
+<!---->
+<!--      }-->
+<!--    </script>-->
+<!--  </head>-->
+<!--  <body onload="loadPieChart()">-->
+<!--    <div id="chart">-->
+<!--      <svg></svg>-->
+<!--    </div>-->
+<!--  </body>-->
+<!--</html>-->
+
+<!DOCTYPE html>
+<html >
+    <head>
+        <meta charset="UTF-8">
+            <title>line graph</title>
+            <link rel="stylesheet" href="css/style.css">
+                </head>
+    <body>
+        <script src="d3.v3.min.js"></script>
+         <script src="AmeriGraph.js"></script>
+<!--           <script src="lineGraph.js"></script>-->
+        <div id="line"></div>
+        <div id="pie"></div>
+          <div id="bar"></div>
+          <h1>WebViewJavascriptBridge Demo</h1>
+          
+           <script>
+               
+               window.onerror = function(err) {
+                   log('window.onerror: ' + err)
+               }
+           
+           function setupWebViewJavascriptBridge(callback) {
+               if (window.WebViewJavascriptBridge) { return callback(WebViewJavascriptBridge); }
+               if (window.WVJBCallbacks) { return window.WVJBCallbacks.push(callback); }
+               window.WVJBCallbacks = [callback];
+               var WVJBIframe = document.createElement('iframe');
+               WVJBIframe.style.display = 'none';
+               WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+               document.documentElement.appendChild(WVJBIframe);
+               setTimeout(function() { document.documentElement.removeChild(WVJBIframe) }, 0)
+           }
+           
+           setupWebViewJavascriptBridge(function(bridge) {
+                                        var uniqueId = 1
+                                        function log(message, data) {
+                                        var log = document.getElementById('log')
+                                        var el = document.createElement('div')
+                                        el.className = 'logLine'
+                                        el.innerHTML = uniqueId++ + '. ' + message + ':<br/>' + JSON.stringify(data)
+                                        if (log.children.length) { log.insertBefore(el, log.children[0]) }
+                                        else { log.appendChild(el) }
+                                        }
+                                        
+                                        bridge.registerHandler('testJavascriptHandler', function(data, responseCallback) {
+                                                               log('ObjC called testJavascriptHandler with', data)
+                                                               var responseData = { 'Javascript Says':'Right back atcha!' }
+                                                               log('JS responding with', add())
+                                                               add();
+                                                               responseCallback(responseData)
+                                                               })
+                                        
+                                        document.body.appendChild(document.createElement('br'))
+                                        
+                                        var callbackButton = document.getElementById('buttons').appendChild(document.createElement('button'))
+                                        callbackButton.innerHTML = 'Fire testObjcCallback'
+                                        callbackButton.onclick = function(e) {
+                                        e.preventDefault()
+                                        log('JS calling handler "testObjcCallback"')
+                                        bridge.callHandler('testObjcCallback', {'foo': 'bar'}, function(response) {
+                                                           log('JS got response', response)
+                                                           })
+                                        }
+                                        })
+                                        
+                                        function add() {
+                                            var lineDataset = [
+                                                               { x_key: 0, y_value: 5 },{ x_key: 1, y_value: 10 },{ x_key: 2, y_value: 13 },{ x_key: 3, y_value: 19 },{ x_key: 4, y_value: 21 },{ x_key: 5, y_value: 25 },{ x_key: 6, y_value: 22 },{ x_key: 7, y_value: 18 },{ x_key: 8, y_value: 15 },{ x_key: 9, y_value: 13 },{ x_key: 10, y_value: 11 },{ x_key: 11, y_value: 12 },{ x_key: 12, y_value: 15 } ];
+                                                               
+                                                               
+                                                               
+                                                               
+                                                               //              var pieDataset =
+                                                               //            [ { x_key:"A", y_value: 5 },{ x_key: "B", y_value: 10 },{ x_key: "C", y_value: 20 },{ x_key: "D", y_value: 20 },{ x_key: "E", y_value: 30 },{ x_key: "F", y_value: 25 },{ x_key: "F", y_value: 25 },{ x_key: "G", y_value: 20 },{ x_key: "H", y_value: 30 },{ x_key: "I", y_value: 20 },{ x_key: "J", y_value: 10 }];-->
+                                                               
+                                                               //barGraph(barDataset,"#bar");//bar graph
+                                                               lineGraph(lineDataset,"#line");
+                                            return 'Sudhir';
+                                        }
+               
+               function updateGraph(data) {
+                       pieChart(data,"#pie");
+                   
+                       }
+           
+           function customBarGraph(data) {
+               var barDataset =
+               [ { x_key: 0, y_value: 5 },{ x_key: 1, y_value: 10 },{ x_key: 2, y_value: 13 },{ x_key: 3, y_value: 19 },{ x_key: 4, y_value: 21 },{ x_key: 5, y_value: 25 },{ x_key: 6, y_value: 22 },{ x_key: 7, y_value: 18 },{ x_key: 8, y_value: 15 },{ x_key: 9, y_value: 13 },{ x_key: 10, y_value: 11 },{ x_key: 11, y_value: 12 },{ x_key: 12, y_value: 15 },{ x_key: 13, y_value: 20 },{ x_key: 14, y_value: 18 },{ x_key: 15, y_value: 17 },{ x_key: 16, y_value: 16 },{ x_key: 17, y_value: 18 },{ x_key: 18, y_value: 23 },{ x_key: 19, y_value: 25 } ];
+               barGraph(barDataset,"#bar");//bar graph
+           }
+               var lineDataset = [
+                                  { x_key: 0, y_value: 5 },{ x_key: 1, y_value: 10 },{ x_key: 2, y_value: 13 },{ x_key: 3, y_value: 19 },{ x_key: 4, y_value: 21 },{ x_key: 5, y_value: 25 },{ x_key: 6, y_value: 22 },{ x_key: 7, y_value: 18 },{ x_key: 8, y_value: 15 },{ x_key: 9, y_value: 13 },{ x_key: 10, y_value: 11 },{ x_key: 11, y_value: 12 },{ x_key: 12, y_value: 15 } ];
+                                  
+                                 
+                                  lineGraph(lineDataset,"#line");
+               
+//              var pieDataset =
+  //            [ { x_key:"A", y_value: 5 },{ x_key: "B", y_value: 10 },{ x_key: "C", y_value: 20 },{ x_key: "D", y_value: 20 },{ x_key: "E", y_value: 30 },{ x_key: "F", y_value: 25 },{ x_key: "F", y_value: 25 },{ x_key: "G", y_value: 20 },{ x_key: "H", y_value: 30 },{ x_key: "I", y_value: 20 },{ x_key: "J", y_value: 10 }];-->
+               
+               	//barGraph(barDataset,"#bar");//bar graph
+              
+               </script>
+    </body>
+</html>

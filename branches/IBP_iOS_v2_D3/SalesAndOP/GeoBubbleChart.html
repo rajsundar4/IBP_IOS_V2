@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<style>
+  .x.axis path {
+    display: none;
+  }
+  .axis line, .domain {
+    fill: none;
+    stroke: #C2C2C2;
+    stroke-width: 1;
+    shape-rendering: crispEdges;
+  }
+  .svg-container {
+    display: inline-block;
+    overflow: hidden;
+    padding-bottom: 100%;
+    position: relative;
+    vertical-align: middle;
+  }
+  .legend rect {
+    opacity:0.8;
+  }
+  .legend-item text{
+   font-size:12px;
+ }
+ .tick text{
+   font-size:12px;
+ }
+ .axis>text{
+   font-weight: bolder;
+   font-size:14px;
+ }
+ .active {
+   opacity: 0.5;
+ }
+ g.tile text{
+  fill: #FFFFFF;
+  font-size: 14px;
+}
+svg rect{
+  shape-rendering: crispEdges;
+}
+
+body , svg{
+  font-family:'Open Sans', Arial, Helvetica, sans-serif;
+  font-size:12px;
+}
+rect.bordered {
+  stroke: #FFFFFF;
+  stroke-width:2px;   
+}
+.land {
+  fill: #EFEFEF;
+  stroke: #B9B9B9;
+}
+.boundary {
+  fill: #EFEFEF;
+  stroke: #B9B9B9;
+}
+.overlay {
+  fill: none;
+  pointer-events: all;
+}
+.legend circle {
+  fill: none;
+  stroke: #ccc;
+}
+
+.legend text {
+  fill: #777;
+  font: 10px sans-serif;
+  text-anchor: middle;
+}
+</style>
+
+<title>Geo Bubble Chart</title>
+
+<body>
+ <div id="chart"></div>
+
+ <script src="d3.v3.min.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+ <script src="http://d3js.org/topojson.v0.min.js"></script>
+ <script type="text/javascript" src="chart.js"></script>
+
+ <script type="text/javascript">
+
+   var data = [{
+    GEOLATITUDE: "50.1167",
+    GEOLONGITUDE: "8.6833",
+    LOCID: 1300,
+    PROJDOC1: "1.090505",
+  }, {
+    GEOLATITUDE: "51.9167",
+    GEOLONGITUDE: "4.5",
+    LOCID: 2500,
+    PROJDOC1: "0.559683",
+  }, {
+    GEOLATITUDE: "39.9139",
+    GEOLONGITUDE: "116.3917",
+    LOCID: 2800,
+    PROJDOC1: "1.19176",
+  }, {
+    GEOLATITUDE: "22.267",
+    GEOLONGITUDE: "114.188",
+    LOCID: 2840,
+    PROJDOC1: "0.083067",
+  }, {
+    GEOLATITUDE: "33.755",
+    GEOLONGITUDE: "-84.39",
+    LOCID: 3200,
+    PROJDOC1: "2.094515",
+  }, {
+    GEOLATITUDE: "47.6097",
+    GEOLONGITUDE: "-122.333",
+    LOCID: 3400,
+    PROJDOC1: 0,
+  }, {
+    GEOLATITUDE: "31.2",
+    GEOLONGITUDE: "121.5",
+    LOCID: "SA101",
+    PROJDOC1: "0.468305",
+  }, {
+    GEOLATITUDE: "31.2",
+    GEOLONGITUDE: "121.5",
+    LOCID: "SA102",
+    PROJDOC1: "0.520339",
+  }];
+
+  /*var presets = {
+     dimensions: [{axis : 1, name : 'Location Region', value: "{LOCREGION}"},],
+     measures: [{name : 'Flagged Minimum Lot Size', value : "{CHECKMINLOTSIZE}"},],
+     dataset: data, 
+     height: "225px",     
+     title : { visible : false, text :'Flagged Minimum Lot Size by Location' },
+   }*/
+
+   
+
+   //function call to render the respective chart
+     GeoBubble("chart", data) // ("id-where-chart-is rendered", presets which has all the pre-requisites)
+
+   </script>
+ </body>
+ </html>

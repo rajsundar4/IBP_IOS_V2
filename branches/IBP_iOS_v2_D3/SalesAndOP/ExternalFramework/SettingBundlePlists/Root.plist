@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Connection Mode</string>
+			<key>Key</key>
+			<string>connectionMode</string>
+			<key>DefaultValue</key>
+			<string>modeGW</string>
+			<key>Titles</key>
+			<array>
+				<string>Gateway</string>
+				<string>SUP</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>modeGW</string>
+				<string>modeSUP</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Gateway Connection</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Auth Method</string>
+			<key>Key</key>
+			<string>authMethod</string>
+			<key>DefaultValue</key>
+			<string>authUserPass</string>
+			<key>Titles</key>
+			<array>
+				<string>Gateway Defined</string>
+				<string>Client Certificate</string>
+				<string>SAP Portal</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>authUserPass</string>
+				<string>authCert</string>
+				<string>authPortal</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+			<key>Title</key>
+			<string>Service Details</string>
+			<key>File</key>
+			<string>Gateway</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+			<key>Title</key>
+			<string>SAP Portal Details</string>
+			<key>File</key>
+			<string>Portal</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>SUP Connection</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+			<key>Title</key>
+			<string>SUP Server Details</string>
+			<key>File</key>
+			<string>SUP</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>You must restart the application after any change is made to the settings.</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+	</array>
+	<key>StringsTable</key>
+	<string>Root</string>
+</dict>
+</plist>

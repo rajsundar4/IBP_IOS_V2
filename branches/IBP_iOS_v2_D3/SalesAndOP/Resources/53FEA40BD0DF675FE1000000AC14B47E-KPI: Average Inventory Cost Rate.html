@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+     <html>
+     <head>
+     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<title>Dummy page title</title>
+<script id="sap-ui-bootstrap" type="text/javascript"     src="sapui5-static/resources/sap-ui-core.js" data-sap-ui-libs="sap.ui.commons,sap.viz">     </script>
+<script>
+var oModel = new sap.ui.model.json.JSONModel({
+data : [
+{ANNUALAVGINVCOSTRATE:375.438848},
+]
+});
+sap.ui.getCore().setModel(oModel);
+var dataset = new sap.viz.ui5.data.FlattenedDataset({
+dimensions : [
+],
+measures : [{name : 'KPI:  Avg Inventory Cost Rate', value : "{ANNUALAVGINVCOSTRATE}"},
+],
+data : { path : "/data" }
+});
+new sap.viz.ui5.Bar("oChart",{
+width : "100%",
+height : "500px",
+plotArea:{
+'colorPalette' : ['#21a3f1','#ff872e','#3f7cc4','#ffe52a','#074389','#f9bc23','#a89ff7','#ffa466','#6666cc','#d6c196','#4a4a8e','#bc9158','#21d6d6','#846544','#1aaba3','#533723','#0d5256','#dbbd09','#a2d3fc','#baa50c','#729bcc','#9b830b','#47617f','#685400']},
+title : { visible : true, text :'KPI: Average Inventory Cost Rate' },
+toolTip : { formatString : [['#,###.##']] },
+xAxis : { label : { formatString : [['0.0,,"M"']] }},
+dataset: dataset
+}).placeAt("content");
+</script>
+</head>
+<body class="sapUiBody">
+<div id="content"></div>
+</body>
+</html>

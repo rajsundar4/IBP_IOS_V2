@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+     <html>
+     <head>
+     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<title>Dummy page title</title>
+<script id="sap-ui-bootstrap" type="text/javascript"     src="sapui5-static/resources/sap-ui-core.js" data-sap-ui-libs="sap.ui.commons,sap.viz">     </script>
+<script>
+var oModel = new sap.ui.model.json.JSONModel({
+data : [
+{S2PRDFAMILY:"x Phone", ACTUALSQTY:789900, CONSENSUSDEMAND:555824},
+{S2PRDFAMILY:"x Tablet", ACTUALSQTY:276465, CONSENSUSDEMAND:193776},
+{S2PRDFAMILY:"y Phone", ACTUALSQTY:868890, CONSENSUSDEMAND:1216148},
+{S2PRDFAMILY:"y Tablet", ACTUALSQTY:368620, CONSENSUSDEMAND:516188},
+{S2PRDFAMILY:"z Phone", ACTUALSQTY:763570, CONSENSUSDEMAND:1068745},
+{S2PRDFAMILY:"z Tablet", ACTUALSQTY:720790.105258, CONSENSUSDEMAND:663769},
+]
+});
+sap.ui.getCore().setModel(oModel);
+var dataset = new sap.viz.ui5.data.FlattenedDataset({
+dimensions : [
+{axis : 1, name : 'Product Family', value: "{S2PRDFAMILY}"},
+],
+measures : [{name : 'Actuals Qty', value : "{ACTUALSQTY}"},
+{name : 'Consensus Demand Plan Qty', value : "{CONSENSUSDEMAND}"},
+],
+data : { path : "/data" }
+});
+new sap.viz.ui5.Bar("oChart",{
+width : "100%",
+height : "500px",
+plotArea:{
+'colorPalette' : ['#21a3f1','#ff872e','#3f7cc4','#ffe52a','#074389','#f9bc23','#a89ff7','#ffa466','#6666cc','#d6c196','#4a4a8e','#bc9158','#21d6d6','#846544','#1aaba3','#533723','#0d5256','#dbbd09','#a2d3fc','#baa50c','#729bcc','#9b830b','#47617f','#685400']},
+title : { visible : true, text :'Forecast vs Actuals by Family' },
+dataset: dataset
+}).placeAt("content");
+</script>
+</head>
+<body class="sapUiBody">
+<div id="content"></div>
+</body>
+</html>

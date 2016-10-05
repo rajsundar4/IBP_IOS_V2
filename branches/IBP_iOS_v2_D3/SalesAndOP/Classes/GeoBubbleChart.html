@@ -1,0 +1,140 @@
+<!doctype html>
+<html><head>
+    <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+            <script src="d3.v3.min.js"></script>
+            <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.12.4.min.js"></script>
+            <script src="https://d3js.org/topojson.v0.min.js"></script>
+            <script type="text/javascript" src="GeoBubbleChart.js"></script>
+            
+</head><body>
+    <div class="" id="chart">
+    </div>
+    <script type="text/javascript">
+        var data = [{
+                    GEOLATITUDE: "50.1167",
+                    GEOLONGITUDE: "8.6833",
+                    LOCID: 1300,
+                    PROJDOC1: "1.090505",
+                    }, {
+                    GEOLATITUDE: "51.9167",
+                    GEOLONGITUDE: "4.5",
+                    LOCID: 2500,
+                    PROJDOC1: "0.559683",
+                    }, {
+                    GEOLATITUDE: "39.9139",
+                    GEOLONGITUDE: "116.3917",
+                    LOCID: 2800,
+                    PROJDOC1: "1.19176",
+                    }, {
+                    GEOLATITUDE: "22.267",
+                    GEOLONGITUDE: "114.188",
+                    LOCID: 2840,
+                    PROJDOC1: "0.083067",
+                    }, {
+                    GEOLATITUDE: "33.755",
+                    GEOLONGITUDE: "-84.39",
+                    LOCID: 3200,
+                    PROJDOC1: "2.094515",
+                    }, {
+                    GEOLATITUDE: "47.6097",
+                    GEOLONGITUDE: "-122.333",
+                    LOCID: 3400,
+                    PROJDOC1: 0,
+                    }, {
+                    GEOLATITUDE: "31.2",
+                    GEOLONGITUDE: "121.5",
+                    LOCID: "SA101",
+                    PROJDOC1: "0.468305",
+                    }, {
+                    GEOLATITUDE: "31.2",
+                    GEOLONGITUDE: "121.5",
+                    LOCID: "SA102",
+                    PROJDOC1: "0.520339",
+                    }];
+                    
+                    var presets = {
+                        dimensions: [],
+                        measures: [],
+                        dataset: data, 
+                        width: "497.000000",
+                        height: "265.600000",   
+                    }
+        </script>
+
+    <!--    <script>chart(dataset,"chart", AxisLabels);</script>-->
+    <!--    <script src="Linechart.js"></script>-->
+    
+        <h1>WebViewJavascriptBridge Demo</h1>
+    <script>
+        window.onerror = function(err) {
+            log('window.onerror: ' + err)
+        }
+    
+    function setupWebViewJavascriptBridge(callback) {
+        if (window.WebViewJavascriptBridge) { return callback(WebViewJavascriptBridge); }
+        if (window.WVJBCallbacks) { return window.WVJBCallbacks.push(callback); }
+        window.WVJBCallbacks = [callback];
+        var WVJBIframe = document.createElement('iframe');
+        WVJBIframe.style.display = 'none';
+        WVJBIframe.src = 'wvjbscheme://__BRIDGE_LOADED__';
+        document.documentElement.appendChild(WVJBIframe);
+        setTimeout(function() { document.documentElement.removeChild(WVJBIframe) }, 0)
+    }
+    
+    setupWebViewJavascriptBridge(function(bridge) {
+                                 var uniqueId = 1
+                                 function log(message, data) {
+                                 var log = document.getElementById('log')
+                                 var el = document.createElement('div')
+                                 el.className = 'logLine'
+                                 el.innerHTML = uniqueId++ + '. ' + message + ':<br/>' + JSON.stringify(data)
+                                 if (log.children.length) { log.insertBefore(el, log.children[0]) }
+                                 else { log.appendChild(el) }
+                                 }
+                                 
+                                 bridge.registerHandler('testJavascriptHandler', function(data, responseCallback) {
+                                                        log('ObjC called testJavascriptHandler with', data)
+                                                        var responseData = { 'Javascript Says':'Right back atcha!' }
+                                                        
+                                                        var clientHeight = document.getElementById('chart').clientHeight;
+                                                        //log('Window width',window.innerWidth,clientHeight);
+                                                        //GeoBubbleChart("chart", presets)
+                                                        GeoBubbleChart("chart", data)
+                                                        // chart(data,"chart", AxisLabels, window.innerWidth, window.innerHeight);
+                                                        
+                                                        //log('Graph is loading from remote');
+                                                        //customBarGraph(data);
+                                                        
+                                                        
+                                                        responseCallback(responseData)
+                                                        })
+                                 
+                                 document.body.appendChild(document.createElement('br'))
+                                 
+                                 var callbackButton = document.getElementById('buttons').appendChild(document.createElement('button'))
+                                 callbackButton.innerHTML = 'Fire testObjcCallback'
+                                 callbackButton.onclick = function(e) {
+                                 e.preventDefault()
+                                 log('JS calling handler "testObjcCallback"')
+                                 bridge.callHandler('testObjcCallback', {'foo': 'bar'}, function(response) {
+                                                    log('JS got response', response)
+                                                    })
+                                 }
+                                 })
+                                 
+                                 function add() {
+                                     return 'Sudhir';
+                                 }
+    
+    function customBarGraph(data) {
+        var barDataset =
+        [ { x_key: 0, y_value: 5 },{ x_key: 1, y_value: 10 },{ x_key: 2, y_value: 13 },{ x_key: 3, y_value: 19 },{ x_key: 4, y_value: 21 },{ x_key: 5, y_value: 25 },{ x_key: 6, y_value: 22 },{ x_key: 7, y_value: 18 },{ x_key: 8, y_value: 15 },{ x_key: 9, y_value: 13 },{ x_key: 10, y_value: 11 },{ x_key: 11, y_value: 12 },{ x_key: 12, y_value: 15 },{ x_key: 13, y_value: 20 },{ x_key: 14, y_value: 18 },{ x_key: 15, y_value: 17 },{ x_key: 16, y_value: 16 },{ x_key: 17, y_value: 18 },{ x_key: 18, y_value: 23 },{ x_key: 19, y_value: 25 } ];
+        barGraph(data,"#bar");//bar graph
+        
+    }
+    
+        </script>
+     <div id='log'></div>
+</body></html>

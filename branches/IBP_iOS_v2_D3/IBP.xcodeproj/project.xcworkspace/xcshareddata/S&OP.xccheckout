@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>D98FB20E-58E0-4BD8-9C23-2FE1A5EC09C1</string>
+	<key>IDESourceControlProjectName</key>
+	<string>S&amp;OP</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>B4B0E149-D8F8-4678-A079-429A0878249E</key>
+		<string>https://greenbay.jas-tec.com:7880/svn/IBP-iOS-v1</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>trunk/S&amp;OP.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>B4B0E149-D8F8-4678-A079-429A0878249E</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectRepositoryRootDictionary</key>
+	<dict>
+		<key>B4B0E149-D8F8-4678-A079-429A0878249E</key>
+		<string>https://greenbay.jas-tec.com:7880/svn/IBP-iOS-v1</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://greenbay.jas-tec.com:7880/svn/IBP-iOS-v1/trunk/S&amp;OP.xcodeproj</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>B4B0E149-D8F8-4678-A079-429A0878249E</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryBranchesRelativeLocationKey</key>
+			<string>branches</string>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.subversion</string>
+			<key>IDESourceControlRepositoryTagsRelativeLocationKey</key>
+			<string>tags</string>
+			<key>IDESourceControlRepositoryTrunkRelativeLocationKey</key>
+			<string>trunk</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>B4B0E149-D8F8-4678-A079-429A0878249E</string>
+			<key>IDESourceControlWCCName</key>
+			<string>IBP-iOS-v1</string>
+		</dict>
+	</array>
+</dict>
+</plist>

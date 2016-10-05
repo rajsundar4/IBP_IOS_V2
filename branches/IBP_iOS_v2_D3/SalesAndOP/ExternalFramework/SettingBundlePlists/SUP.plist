@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>SUP Server Details</string>
+		</dict>
+		<dict>
+			<key>AutocapitalizationType</key>
+			<string>None</string>
+			<key>AutocorrectionType</key>
+			<string>No</string>
+			<key>DefaultValue</key>
+			<string></string>
+			<key>Key</key>
+			<string>supHost</string>
+			<key>KeyboardType</key>
+			<string>Alphabet</string>
+			<key>Title</key>
+			<string>Host</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+		</dict>
+		<dict>
+			<key>AutocapitalizationType</key>
+			<string>None</string>
+			<key>AutocorrectionType</key>
+			<string>No</string>
+			<key>DefaultValue</key>
+			<string></string>
+			<key>Key</key>
+			<string>supPort</string>
+			<key>KeyboardType</key>
+			<string>NumberPad</string>
+			<key>Title</key>
+			<string>Port</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+		</dict>
+		<dict>
+			<key>AutocapitalizationType</key>
+			<string>None</string>
+			<key>AutocorrectionType</key>
+			<string>No</string>
+			<key>DefaultValue</key>
+			<string></string>
+			<key>Key</key>
+			<string>supFarmId</string>
+			<key>KeyboardType</key>
+			<string>Alphabet</string>
+			<key>Title</key>
+			<string>Farm ID</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+		</dict>
+		<dict>
+			<key>AutocapitalizationType</key>
+			<string>None</string>
+			<key>AutocorrectionType</key>
+			<string>No</string>
+			<key>DefaultValue</key>
+			<string></string>
+			<key>Key</key>
+			<string>supSecConfig</string>
+			<key>KeyboardType</key>
+			<string>Alphabet</string>
+			<key>Title</key>
+			<string>Security Configuration</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Send Client Certificate</string>
+			<key>Key</key>
+			<string>supUseCertificate</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string></string>
+		</dict>
+		<dict>
+			<key>AutocapitalizationType</key>
+			<string>None</string>
+			<key>AutocorrectionType</key>
+			<string>No</string>
+			<key>DefaultValue</key>
+			<string>com.yourcompany.SOP_Sandbox_1</string>
+			<key>Key</key>
+			<string>supAppID</string>
+			<key>KeyboardType</key>
+			<string>Alphabet</string>
+			<key>Title</key>
+			<string>Application ID</string>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+		</dict>
+		<dict>
+			<key>FooterText</key>
+			<string>These settings are required when SUP is selected as the Connection Mode</string>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+		</dict>
+	</array>
+	<key>StringsTable</key>
+	<string>Root</string>
+</dict>
+</plist>

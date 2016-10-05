@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "c0c3ced5-d81c-644d-ba3c-70ac744aa9ab",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "c0c3ced5-d81c-644d-ba3c-70ac744aa9ab" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "c0c3ced5-d81c-644d-ba3c-70ac744aa9ab" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9C7F93D5-5A60-4775-8725-E0F1A646833D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "c0c3ced5-d81c-644d-ba3c-70ac744aa9ab" : "IBP_D3\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "IBP",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "branches\/IBP_iOS_v2_D3\/IBP.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/greenbay.jas-tec.com:7880\/svn\/IBP_ios_v2_withD3",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "c0c3ced5-d81c-644d-ba3c-70ac744aa9ab"
+    }
+  ]
+}

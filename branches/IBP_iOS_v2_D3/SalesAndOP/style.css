@@ -1,0 +1,46 @@
+.x.axis path, .y.axis path {
+  display: none;
+}
+.axis line, .domain {
+  fill: none;
+  stroke: #C2C2C2;
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+.legend rect {
+  opacity:0.8;
+}
+.legend-item text{
+ font-size:12px;
+}
+.tick text{
+ font-size:12px;
+}
+.axis>text{
+ font-weight: bolder;
+ font-size:14px;
+}
+.active {
+ opacity: 0.5;
+}
+.donutText{
+  font-size: 14px;
+  font-weight:bolder;
+  width:50%;
+  word-wrap: break-word;
+}
+svg rect{
+  shape-rendering: crispEdges;
+}
+body , svg{
+  font-family:'Open Sans', Arial, Helvetica, sans-serif;
+  font-size:12px;
+}
+g.tile text{
+  fill: #FFFFFF;
+  font-size: 14px;
+}
+rect.bordered {
+  stroke: #FFFFFF;
+  stroke-width:2px;   
+}
